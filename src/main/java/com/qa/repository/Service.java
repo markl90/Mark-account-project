@@ -16,6 +16,6 @@ public interface Service {
 	
 	public void updateAccountFirstName(int id, String firstName);
 	
-	public void updateAccountLastName(int id, String lastName);
+	public void updateAccountLastName(int id, String lastName); 
 
 }

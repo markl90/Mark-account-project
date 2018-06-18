@@ -12,7 +12,7 @@ public class Account {
 		this.secondName = secondName;
 		this.accountNumber = accountNumber;
 	}
-
+ 
 	public String getFirstName() {
 		return firstName;
 	}

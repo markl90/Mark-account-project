@@ -6,5 +6,5 @@
 	
 	 <alternatives>
         <class>com.qa.repository.MapImpl</class>
-    </alternatives>
+    </alternatives> 
 </beans>
