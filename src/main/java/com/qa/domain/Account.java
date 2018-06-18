@@ -5,6 +5,7 @@ public class Account {
 	private String firstName;
 	private String secondName;
 	private String accountNumber;
+	private int id;
 
 	public Account(String firstName, String secondName, String accountNumber) {
 		this.firstName = firstName;
@@ -34,6 +35,14 @@ public class Account {
 
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public int getId() {
+		return id;
 	}
 
 }

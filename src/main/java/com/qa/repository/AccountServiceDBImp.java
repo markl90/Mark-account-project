@@ -2,6 +2,7 @@ package com.qa.repository;
 
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
@@ -15,8 +16,9 @@ import java.util.Map;
 
 import static javax.transaction.Transactional.TxType.REQUIRED;
 
+@Default
 @Transactional(SUPPORTS)
-public class AccountServiceDBImp {
+public class AccountServiceDBImp implements Service {
 	
 	
 	private JSONUtil util = new JSONUtil();
@@ -25,13 +27,13 @@ public class AccountServiceDBImp {
 	private EntityManager manager;
 	
 	public Account findAccount(Long id) {
-		Account account = manager.find(Account.class, id);
-		if (account == null) {
-			return "{\"message\": \"account not found\"}";
-		}
-		else {
-			return account;
-		}
+//		Account account = manager.find(Account.class, id);
+//		if (account != null) {
+//			return "{\"message\": \"account not found\"}";
+//		}
+//		else {
+			return manager.find(Account.class, id);
+		
     }
 	
 	
@@ -42,9 +44,8 @@ public class AccountServiceDBImp {
     }
 	
 	@Transactional(REQUIRED)
-	public String removeAccount(long id) {
+	public void removeAccount(int id) {
 		manager.remove(manager.find(Account.class, id));
-		return "{\"message\": \"account sucessfully added\"}";
 	}
 	
 	
@@ -53,13 +54,14 @@ public class AccountServiceDBImp {
         return query.getResultList();
 	}
 	
-	public void updateAccountFirstName(long id, String firstName) {	
+	public void updateAccountFirstName(int id, String firstName) {	
 		Account accountToUpdate = manager.find(Account.class, id);
 		accountToUpdate.setFirstName(firstName);
 		
+		
 	}
 	
-	public void updateAccountLastName(long id, String lastName) {	
+	public void updateAccountLastName(int id, String lastName) {	
 		Account accountToUpdate = manager.find(Account.class, id);
 		accountToUpdate.setFirstName(lastName);
 		
